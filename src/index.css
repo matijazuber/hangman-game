@@ -16,8 +16,33 @@ body {
 h2 {
   color: #f9f4da;
   font-size: 30px;
+  font-weight: 500;
 }
 
 div {
   text-align: center;
+}
+
+.win {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #10a95b;
+  border-radius: 4px;
+  padding: 30px 6px;
+}
+
+.winP {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 500;
+  color: #f9f4da;
+}
+
+.hangmanDesc {
+  color: #f9f4da;
+}
+
+.wellDone {
+  margin: 0;
 }
