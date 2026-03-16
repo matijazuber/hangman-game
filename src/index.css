@@ -12,3 +12,12 @@ body {
   display: flex;
   justify-content: center;
 }
+
+h2 {
+  color: #f9f4da;
+  font-size: 30px;
+}
+
+div {
+  text-align: center;
+}
