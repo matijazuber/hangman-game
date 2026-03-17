@@ -1,5 +1,6 @@
 import languagesEl from "./languages.jsx";
 import Languages from "./languageStyle.jsx";
+import React from "react";
 
 function Hangman() {
   const languageElements = languagesEl.map((lang) => {
@@ -13,7 +14,29 @@ function Hangman() {
     );
   });
 
-  console.log(languageElements);
+  const [currentWord] = React.useState("refactor");
+
+  const currentWordArray = [...currentWord];
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const alphabetArray = [...alphabet];
+
+  function displayKeyboard() {
+    return alphabetArray.map((key, index) => (
+      <button className="keyboardButton" key={index}>
+        {key.toUpperCase()}
+      </button>
+    ));
+  }
+
+  function displayLetters() {
+    return currentWordArray.map((word, index) => (
+      <span className="spanElement" key={index}>
+        {word.toUpperCase()}
+      </span>
+    ));
+  }
 
   return (
     <>
@@ -27,13 +50,21 @@ function Hangman() {
         </div>
       </header>
       <main>
-        <div className="win">
-          <h2 className="winP">You win!</h2>
-          <p className="wellDone">
-            Well done!🎉<img></img>
-          </p>
-        </div>
-        <div className="languageElementsDiv">{languageElements}</div>
+        <section>
+          <div className="win">
+            <h2 className="winP">You win!</h2>
+            <p className="wellDone">
+              Well done!🎉<img></img>
+            </p>
+          </div>
+        </section>
+        <section>
+          <div className="languageElementsDiv">{languageElements}</div>
+        </section>
+        <section>
+          <div className="divDisplayLetters">{displayLetters()}</div>
+        </section>
+        <div className="displayKeyboard">{displayKeyboard()}</div>
       </main>
     </>
   );
