@@ -1,4 +1,20 @@
+import languagesEl from "./languages.jsx";
+import Languages from "./languageStyle.jsx";
+
 function Hangman() {
+  const languageElements = languagesEl.map((lang) => {
+    return (
+      <Languages
+        key={lang.id}
+        name={lang.name}
+        backgroudnCl={lang.backgroundColor}
+        color={lang.color}
+      ></Languages>
+    );
+  });
+
+  console.log(languageElements);
+
   return (
     <>
       <header>
@@ -17,6 +33,7 @@ function Hangman() {
             Well done!🎉<img></img>
           </p>
         </div>
+        <div className="languageElementsDiv">{languageElements}</div>
       </main>
     </>
   );

@@ -46,3 +46,12 @@ div {
 .wellDone {
   margin: 0;
 }
+
+.languageElementsDiv {
+  margin: 30px auto 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+}
