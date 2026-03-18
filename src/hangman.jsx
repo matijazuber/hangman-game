@@ -16,15 +16,28 @@ function Hangman() {
 
   const [currentWord] = React.useState("refactor");
 
+  const [guessedLetters, setguessedLetters] = React.useState([]);
+  console.log(guessedLetters);
+
   const currentWordArray = [...currentWord];
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   const alphabetArray = [...alphabet];
 
+  function addLetters(value) {
+    setguessedLetters((prev) =>
+      prev.includes(value) ? prev : [...prev, value],
+    );
+  }
+
   function displayKeyboard() {
     return alphabetArray.map((key, index) => (
-      <button className="keyboardButton" key={index}>
+      <button
+        onClick={() => addLetters(key)}
+        className="keyboardButton"
+        key={index}
+      >
         {key.toUpperCase()}
       </button>
     ));
