@@ -1,61 +1,61 @@
 export default [
   {
     id: crypto.randomUUID(),
-    name: "HTML",
-    backgroundColor: "#E2680F",
+    name: "♥️",
+    backgroundColor: "#974001",
     color: "#F9F4DA",
   },
   {
     id: crypto.randomUUID(),
-    name: "CSS",
+    name: "♥️",
     backgroundColor: "#328AF1",
     color: "#F9F4DA",
   },
   {
     id: crypto.randomUUID(),
-    name: "JavaScript",
+    name: "♥️",
     backgroundColor: "#F4EB13",
     color: "#1E1E1E",
   },
   {
     id: crypto.randomUUID(),
 
-    name: "React",
+    name: "♥️",
     backgroundColor: "#2ED3E9",
     color: "#1E1E1E",
   },
   {
     id: crypto.randomUUID(),
 
-    name: "TypeScript",
+    name: "♥️",
     backgroundColor: "#298EC6",
     color: "#F9F4DA",
   },
   {
     id: crypto.randomUUID(),
 
-    name: "Node.js",
+    name: "♥️",
     backgroundColor: "#599137",
     color: "#F9F4DA",
   },
   {
     id: crypto.randomUUID(),
 
-    name: "Python",
+    name: "♥️",
     backgroundColor: "#FFD742",
     color: "#1E1E1E",
   },
   {
     id: crypto.randomUUID(),
 
-    name: "Ruby",
+    name: "♥️",
     backgroundColor: "#D02B2B",
     color: "#F9F4DA",
   },
   {
     id: crypto.randomUUID(),
 
-    name: "Assembly",
+    name: "💔",
     backgroundColor: "#2D519F",
     color: "#F9F4DA",
   },

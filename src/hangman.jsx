@@ -10,23 +10,19 @@ function Hangman() {
         name={lang.name}
         backgroudnCl={lang.backgroundColor}
         color={lang.color}
-      ></Languages>
+      />
     );
   });
 
   const [currentWord] = React.useState("refactor");
-
-  const [guessedLetters, setguessedLetters] = React.useState([]);
-  console.log(guessedLetters);
+  const [guessedLetters, setGuessedLetters] = React.useState([]);
 
   const currentWordArray = [...currentWord];
-
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-
   const alphabetArray = [...alphabet];
 
   function addLetters(value) {
-    setguessedLetters((prev) =>
+    setGuessedLetters((prev) =>
       prev.includes(value) ? prev : [...prev, value],
     );
   }
@@ -35,6 +31,13 @@ function Hangman() {
     return alphabetArray.map((key, index) => (
       <button
         onClick={() => addLetters(key)}
+        style={
+          guessedLetters.includes(key)
+            ? currentWordArray.includes(key)
+              ? { backgroundColor: "#10A95B" }
+              : { backgroundColor: "#EC5D49" }
+            : { backgroundColor: "#fcba29" }
+        }
         className="keyboardButton"
         key={index}
       >
@@ -46,7 +49,7 @@ function Hangman() {
   function displayLetters() {
     return currentWordArray.map((word, index) => (
       <span className="spanElement" key={index}>
-        {word.toUpperCase()}
+        {guessedLetters.includes(word) ? word.toUpperCase() : null}
       </span>
     ));
   }
@@ -67,7 +70,8 @@ function Hangman() {
           <div className="win">
             <h2 className="winP">You win!</h2>
             <p className="wellDone">
-              Well done!🎉<img></img>
+              Well done! 🎉
+              <img alt="" />
             </p>
           </div>
         </section>
@@ -78,8 +82,12 @@ function Hangman() {
           <div className="divDisplayLetters">{displayLetters()}</div>
         </section>
         <div className="displayKeyboard">{displayKeyboard()}</div>
+        <section>
+          <button className="newGameButton">New Game</button>
+        </section>
       </main>
     </>
   );
 }
+
 export default Hangman;
