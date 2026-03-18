@@ -3,19 +3,10 @@ import Languages from "./languageStyle.jsx";
 import React from "react";
 
 function Hangman() {
-  const languageElements = languagesEl.map((lang) => {
-    return (
-      <Languages
-        key={lang.id}
-        name={lang.name}
-        backgroudnCl={lang.backgroundColor}
-        color={lang.color}
-      />
-    );
-  });
-
   const [currentWord] = React.useState("refactor");
   const [guessedLetters, setGuessedLetters] = React.useState([]);
+  const [wrongGuessCount, setWrongGuessCount] = React.useState(0);
+  console.log("Wrong guesses:", wrongGuessCount);
 
   const currentWordArray = [...currentWord];
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -25,7 +16,24 @@ function Hangman() {
     setGuessedLetters((prev) =>
       prev.includes(value) ? prev : [...prev, value],
     );
+
+    if (!currentWordArray.includes(value)) {
+      setWrongGuessCount((prev) => prev + 1);
+    }
   }
+
+  const languageElements = languagesEl.map((lang, index) => {
+    const displaySymbol = index < wrongGuessCount ? "💀" : lang.name;
+
+    return (
+      <Languages
+        key={lang.id}
+        name={displaySymbol}
+        backgroudnCl={lang.backgroundColor}
+        color={lang.color}
+      />
+    );
+  });
 
   function displayKeyboard() {
     return alphabetArray.map((key, index) => (
@@ -47,9 +55,9 @@ function Hangman() {
   }
 
   function displayLetters() {
-    return currentWordArray.map((word, index) => (
+    return currentWordArray.map((letter, index) => (
       <span className="spanElement" key={index}>
-        {guessedLetters.includes(word) ? word.toUpperCase() : null}
+        {guessedLetters.includes(letter) ? letter.toUpperCase() : null}
       </span>
     ));
   }
