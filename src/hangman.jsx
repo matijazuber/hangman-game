@@ -2,6 +2,7 @@ import languagesEl from "./languages.jsx";
 import Languages from "./languageStyle.jsx";
 import React from "react";
 import wordPicker from "./words.js";
+import Confetti from "react-confetti";
 
 function Hangman() {
   const [currentWord, setCurrentWord] = React.useState(() => wordPicker());
@@ -102,6 +103,8 @@ function Hangman() {
           ) : null}
           {isGameWon ? (
             <div className="win">
+              <Confetti></Confetti>
+
               <h2 className="winP">You win!</h2>
               <p className="wellDone">Well done! 🎉</p>
             </div>
