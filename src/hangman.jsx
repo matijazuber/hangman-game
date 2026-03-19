@@ -93,6 +93,10 @@ function Hangman() {
               <div className="lose">
                 <h2 className="loseP">Game over!</h2>
                 <p className="gameOver">You lose! Better luck next time!</p>
+                <p>
+                  The word was:
+                  <span style={{ fontWeight: "900" }}> {currentWord}</span>
+                </p>
               </div>
             </>
           ) : null}
