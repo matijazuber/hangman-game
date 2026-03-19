@@ -103,7 +103,7 @@ function Hangman() {
           ) : null}
           {isGameWon ? (
             <div className="win">
-              <Confetti></Confetti>
+              <Confetti recycle={false}></Confetti>
 
               <h2 className="winP">You win!</h2>
               <p className="wellDone">Well done! 🎉</p>
