@@ -1,16 +1,23 @@
-# React + Vite
+# Hangman
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A classic Hangman word-guessing game built with React.
 
-Currently, two official plugins are available:
+![Hangman Game Screenshot](./hangman-project.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About
 
-## React Compiler
+Hangman is a single-player word-guessing game where the player attempts to reveal a hidden word by suggesting letters, one at a time. Each incorrect guess draws another part of the hangman figure. The player wins by guessing the word before the figure is fully drawn.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Interactive on-screen keyboard
+- Animated hangman figure drawn on each wrong guess
+- Random word selection from a curated word list
+- Win/loss detection with restart option
+- Responsive design for desktop and mobile
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **React** — UI components and state management
+- **CSS Modules** — scoped, modular styling
+- **Vite** — fast development server and build tool
