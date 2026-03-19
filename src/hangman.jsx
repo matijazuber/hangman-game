@@ -22,6 +22,12 @@ function Hangman() {
     }
   }
 
+  const isGameWon = currentWordArray.every((letter) =>
+    guessedLetters.includes(letter),
+  );
+
+  const isGameOver = wrongGuessCount >= 8;
+
   const languageElements = languagesEl.map((lang, index) => {
     const displaySymbol = index < wrongGuessCount ? "💀" : lang.name;
 
@@ -75,13 +81,20 @@ function Hangman() {
       </header>
       <main>
         <section>
-          <div className="win">
-            <h2 className="winP">You win!</h2>
-            <p className="wellDone">
-              Well done! 🎉
-              <img alt="" />
-            </p>
-          </div>
+          {isGameOver ? (
+            <>
+              <div className="lose">
+                <h2 className="loseP">Game over!</h2>
+                <p className="gameOver">You lose! Better luck next time!</p>
+              </div>
+            </>
+          ) : null}
+          {isGameWon ? (
+            <div className="win">
+              <h2 className="winP">You win!</h2>
+              <p className="wellDone">Well done! 🎉</p>
+            </div>
+          ) : null}
         </section>
         <section>
           <div className="languageElementsDiv">{languageElements}</div>
@@ -91,7 +104,9 @@ function Hangman() {
         </section>
         <div className="displayKeyboard">{displayKeyboard()}</div>
         <section>
-          <button className="newGameButton">New Game</button>
+          {isGameOver ? (
+            <button className="newGameButton">New Game</button>
+          ) : null}
         </section>
       </main>
     </>
