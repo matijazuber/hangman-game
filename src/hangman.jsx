@@ -3,7 +3,7 @@ import Languages from "./languageStyle.jsx";
 import React from "react";
 
 function Hangman() {
-  const [currentWord] = React.useState("refactor");
+  const [currentWord, setCurrentWord] = React.useState("refactor");
   const [guessedLetters, setGuessedLetters] = React.useState([]);
   const [wrongGuessCount, setWrongGuessCount] = React.useState(0);
   console.log("Wrong guesses:", wrongGuessCount);
@@ -11,6 +11,12 @@ function Hangman() {
   const currentWordArray = [...currentWord];
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const alphabetArray = [...alphabet];
+
+  function resetGame() {
+    setGuessedLetters([]);
+    setWrongGuessCount(0);
+    setCurrentWord("refactor");
+  }
 
   function addLetters(value) {
     setGuessedLetters((prev) =>
@@ -44,6 +50,7 @@ function Hangman() {
   function displayKeyboard() {
     return alphabetArray.map((key, index) => (
       <button
+        disabled={isGameOver || isGameWon}
         onClick={() => addLetters(key)}
         style={
           guessedLetters.includes(key)
@@ -105,7 +112,9 @@ function Hangman() {
         <div className="displayKeyboard">{displayKeyboard()}</div>
         <section>
           {isGameOver ? (
-            <button className="newGameButton">New Game</button>
+            <button onClick={resetGame} className="newGameButton">
+              New Game
+            </button>
           ) : null}
         </section>
       </main>

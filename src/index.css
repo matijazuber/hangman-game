@@ -130,3 +130,8 @@ div {
 .gameOver {
   margin: 0;
 }
+
+.keyboardButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
