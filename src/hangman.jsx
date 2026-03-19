@@ -1,12 +1,12 @@
 import languagesEl from "./languages.jsx";
 import Languages from "./languageStyle.jsx";
 import React from "react";
+import wordPicker from "./words.js";
 
 function Hangman() {
-  const [currentWord, setCurrentWord] = React.useState("refactor");
+  const [currentWord, setCurrentWord] = React.useState(() => wordPicker());
   const [guessedLetters, setGuessedLetters] = React.useState([]);
   const [wrongGuessCount, setWrongGuessCount] = React.useState(0);
-  console.log("Wrong guesses:", wrongGuessCount);
 
   const currentWordArray = [...currentWord];
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -15,7 +15,7 @@ function Hangman() {
   function resetGame() {
     setGuessedLetters([]);
     setWrongGuessCount(0);
-    setCurrentWord("refactor");
+    setCurrentWord(wordPicker);
   }
 
   function addLetters(value) {
@@ -112,6 +112,12 @@ function Hangman() {
         <div className="displayKeyboard">{displayKeyboard()}</div>
         <section>
           {isGameOver ? (
+            <button onClick={resetGame} className="newGameButton">
+              New Game
+            </button>
+          ) : null}
+
+          {isGameWon ? (
             <button onClick={resetGame} className="newGameButton">
               New Game
             </button>
